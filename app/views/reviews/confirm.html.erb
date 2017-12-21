@@ -1,0 +1,22 @@
+<h1>確認画面</h1>
+
+<h2>以下の内容で、送信します</h2>
+<%= form_for(@review) do |f| %>
+  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <%= f.hidden_field :photo %>
+
+  <!-- @review.titleと@review.contentとすることで、表示用の値を画面に出力しています。 -->
+  <p>タイトル:<%= @review.title %></p>
+  <p>本文:<%= @review.content %></p>
+  <p>画像:<%= @review.content %></p>
+  <%= f.submit "登録する" %>
+<% end %>
+
+<%= form_for(@review, url: new_review_path, method: 'get') do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <%= f.hidden_field :photo %>
+  <%= f.submit "もどる", name: 'back' %>
+<% end %>

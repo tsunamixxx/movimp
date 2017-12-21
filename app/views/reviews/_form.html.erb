@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for(@review, url: choose_new_or_edit) do |f| %>
+  <% if @review.errors.any? %>
+    <div class="error-explanation">
+      <h2><%= @review.errors.count %>件のエラーがあります</h2>
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :感想 %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.label :画像 %>
+  <%= f.file_field :photo %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "レビュー一覧画面", reviews_path %>
