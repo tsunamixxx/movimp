@@ -28,6 +28,13 @@
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to '投稿する', new_review_path %></li>
               <li><%= link_to 'レビュー一覧', reviews_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'ログイン', new_user_session_path  %></li>
+                <li><%= link_to '会員登録', new_user_registration_path %></li>
+              <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

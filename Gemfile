@@ -47,4 +47,7 @@ end
 
 gem 'twitter-bootstrap-rails'
 
+# herokuでもログを確認できる
 gem 'rails_12factor', group: :production
+
+gem 'devise'
