@@ -3,9 +3,12 @@
 <p><%= notice %></p>
 
 <% @reviews.each do |review| %>
-  <p>タイトル:<%= review.title %></p>
-  <p>本文:<%= review.content %></p>
-  <p>画像:<%= review.photo %></p>
+  <ul>
+    <li>タイトル:<%= review.title %></li>
+    <li>本文:<%= review.content %></li>
+    <li>画像:<%= review.photo %></li>
+    <li>投稿者：<%= review.user.name if review.user %></li>
+  </ul>
   <%= link_to "編集する", edit_review_path(review.id) %>
   <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
 <% end %>
