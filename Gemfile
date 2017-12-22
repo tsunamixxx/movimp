@@ -55,3 +55,9 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 
 gem 'faker'
+
+# 管理画面
+gem 'rails_admin'
+
+# 管理画面にadminのみログイン
+gem 'cancan'
