@@ -49,6 +49,9 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener_web'
+
+  #開発環境での環境変数化
+  gem 'dotenv-rails'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -65,3 +68,11 @@ gem 'rails_admin'
 
 # 管理画面にadminのみログイン
 gem 'cancan'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+#image uploader
+gem 'carrierwave'
+gem 'mini_magick'
