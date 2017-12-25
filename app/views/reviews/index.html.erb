@@ -7,6 +7,7 @@
     <li>タイトル:<%= review.title %></li>
     <li>本文:<%= review.content %></li>
     <li>画像:<%= review.photo %></li>
+    <li><%= profile_img(review.user) %></li>
     <li>投稿者：<%= review.user.name if review.user %></li>
   </ul>
   <%= link_to "編集する", edit_review_path(review.id) %>

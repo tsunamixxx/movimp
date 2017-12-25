@@ -10,8 +10,8 @@
   <!-- @review.titleと@review.contentとすることで、表示用の値を画面に出力しています。 -->
   <p>タイトル:<%= @review.title %></p>
   <p>本文:<%= @review.content %></p>
-  <p>画像:<%= @review.content %></p>
-  <%= f.submit "登録する" %>
+  <p>画像:<%= @review.photo %></p>
+  <%= f.submit "投稿する" %>
 <% end %>
 
 <%= form_for(@review, url: new_review_path, method: 'get') do |f| %>
