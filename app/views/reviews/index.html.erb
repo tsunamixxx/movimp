@@ -4,7 +4,7 @@
 
 <% @reviews.each do |review| %>
   <ul>
-    <li>タイトル:<%= review.title %></li>
+    <li>タイトル:<%= link_to review_path(review) do %><%= review.title %><% end %></li>
     <li>本文:<%= review.content %></li>
     <li>画像:<%= review.photo %></li>
     <li><%= profile_img(review.user) %></li>

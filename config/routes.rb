@@ -7,11 +7,17 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  resources :reviews, only:[:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      post :confirm
-    end
+  resources :reviews do
+    resources :comments
+    post :confirm, on: :collection
   end
+
+  #ルーティングを上記にカスタマイズ（コメント機能を挿入するため）
+  #resources :reviews, only:[:index, :new, :create, :edit, :update, :destroy] do
+    #collection do
+      #post :confirm
+    #end
+  #end
 
   root 'top#index'
 

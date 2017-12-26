@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
 
-  has_many :reviews
-
+  has_many :reviews, dependent: :destroy
+  
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

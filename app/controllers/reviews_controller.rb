@@ -2,10 +2,16 @@ class ReviewsController < ApplicationController
 
   before_action :authenticate_user!
 
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
     @reviews = Review.all
+  end
+
+  # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
+  def show
+    @comment = @review.comments.build
+    @comments = @review.comments
   end
 
   def new
