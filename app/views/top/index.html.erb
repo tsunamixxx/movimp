@@ -13,3 +13,22 @@
     <p><%= notice %><%= alert %></p>
   </div>
 </div>
+
+<% @reviews.first(3).each do |review| %>
+  <ul>
+    <li>タイトル:<%= link_to review_path(review) do %><%= review.title %><% end %></li>
+    <li>感想:<%= review.content %></li>
+    <li>画像:<%= image_tag(review.photo) %></li>
+    <li><%= profile_img(review.user) if review.user %></li>
+    <li>投稿者：<%= review.user.name if review.user %></li>
+  </ul>
+  <% if user_signed_in? %>
+    <% if review.user_id == current_user.id %>
+      <%= link_to "編集する", edit_review_path(review.id) %>
+      <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "レビュー一覧", reviews_path %>
+<%= link_to "投稿する", new_review_path %>
