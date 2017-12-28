@@ -5,13 +5,16 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reviews = Review.all
+    # order(created_at: :desc)で新しい投稿順にする
+    @reviews = Review.all.order(created_at: :desc)
   end
 
   # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
   def show
     @comment = @review.comments.build
     @comments = @review.comments
+
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
   def new

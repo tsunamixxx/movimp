@@ -5,8 +5,8 @@
 <% @reviews.each do |review| %>
   <ul>
     <li>タイトル:<%= link_to review_path(review) do %><%= review.title %><% end %></li>
-    <li>本文:<%= review.content %></li>
-    <li>画像:<%= review.photo %></li>
+    <li>感想:<%= review.content %></li>
+    <li>画像:<%= image_tag(review.photo) %></li>
     <li><%= profile_img(review.user) if review.user %></li>
     <li>投稿者：<%= review.user.name if review.user %></li>
   </ul>

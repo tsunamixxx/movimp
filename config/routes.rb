@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
@@ -18,6 +24,10 @@ Rails.application.routes.draw do
       #post :confirm
     #end
   #end
+
+  # フォローフォロワーの設定用ルーティング
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
 
   root 'top#index'
 

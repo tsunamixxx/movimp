@@ -5,4 +5,7 @@ class Review < ActiveRecord::Base
 
   # CommentモデルのAssociationを設定
   has_many :comments, dependent: :destroy
+
+  # 写真投稿
+  mount_uploader :photo, PhotoUploader
 end
