@@ -1,17 +1,27 @@
-<h1>パスワード再設定</h1>
-
-<%= alert %>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+<div class="ttl">
+  <div class="container-fluid mb20">
+    <h1>パスワード再設定</h1>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "再設定メールを送信する", class: "btn btn-primary btn-block" %>
+<div class="container-fluid mb20">
+  <div class="tal-c">
+    <p id="notice"><%= alert %></p>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, class: "form-control mb20", placeholder: "メールアドレス" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "再設定メールを送信する", class: "btn btn-primary btn-block mb20" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

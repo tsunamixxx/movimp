@@ -13,3 +13,118 @@
  *= require_tree .
  *= require_self
  */
+
+li {
+  list-style-type: none;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.image {
+  width: 150px;
+}
+
+.flt-l {
+  float: left;
+}
+
+.flt-r {
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.thumbnail-ava {
+  margin-right: 10px;
+}
+
+.review-list h2 {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.tal-r {
+  text-align: right;
+}
+
+.tal-c {
+  text-align: center;
+}
+
+.review-list {
+  width: 100%;
+}
+
+.review-ttl {
+  height: 55px;
+  overflow: hidden;
+}
+
+.review-body {
+  height: 55px;
+  overflow: hidden;
+}
+
+.ttl {
+  background-image: url(ttl.jpg);
+  background-size: cover;
+}
+.ttl h1 {
+  padding: 40px 0;
+  color: #fff;
+}
+
+.btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#comments_area li {
+  border-bottom: 1px dotted #333;
+}
+
+
+@media screen and (max-width:767px) {
+  /*　画面サイズが767px以下の場合読み込む　*/
+
+}
+
+@media screen and (min-width:768px){
+  /*　画面サイズが768px以上の場合読み込む　*/
+
+  .flex{
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+
+
+
+}

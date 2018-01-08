@@ -3,5 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  background-image: url("main01.jpg")
+  background-image: url("main02.png");
+  background-size: cover;
+}
+.jumbotron h1,
+.jumbotron p {
+  color: #fff;
+  text-shadow: 0 0 20px #000;
+}
+
+@media screen and (max-width:767px) {
+  /*　画面サイズが767px以下の場合読み込む　*/
+
+  .jumbotron p {
+    font-size: 16px;
+    font-weight: normal;
+  }
 }

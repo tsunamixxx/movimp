@@ -1,24 +1,61 @@
-<p id="notice"><%= notice %></p>
-<div class="child row">
-  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-    <div class="review-text">
-      <p class="left"><strong>タイトル</strong></p>
-      <p class="left"><%= @review.title %></p>
-      <p class="left"><strong>感想</strong></p>
-      <p class="left"><%= @review.content %></p>
-      <p class="right">
-        <strong>作成時間:</strong>
-        <%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %>
-      </p>
-    </div>
-    <p>コメント一覧</p>
-    <div id="comments_area">
+<div class="ttl">
+  <div class="container-fluid mb20">
+    <h1>詳細画面</h1>
+  </div>
+</div>
+
+<p id="notice" class="tal-c mb30"><%= notice %></p>
+
+<div class="container mb20">
+  <% unless @review.photo.blank?  %>
+    <div class="image flt-l mr20"><%= image_tag(@review.photo) %></div>
+  <% else %>
+    <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
+  <% end %>
+  <div class="review-list">
+    <h2 class="h4"><%= @review.movie %></h2>
+    <p class="">
+      <% if @review.star == 1 %>
+        <%= image_tag 'star1.png' %>
+      <% elsif @review.star == 2 %>
+        <%= image_tag 'star2.png' %>
+      <% elsif @review.star == 3 %>
+        <%= image_tag 'star3.png' %>
+      <% elsif @review.star == 4 %>
+        <%= image_tag 'star4.png' %>
+      <% elsif @review.star == 5 %>
+        <%= image_tag 'star5.png' %>
+      <% end %>
+    </p>
+    <h2><%= @review.title %></h2>
+    <p class="left"><%= @review.content %></p>
+    <p class="right">作成時間:<%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+  </div>
+</div>
+
+<div class="container mb20">
+  <div class="clearfix">
+    <p class="flt-l thumbnail-ava"><%= profile_img(@review.user) if @review.user %></p>
+    <p><%= link_to @review.user.name, @review.user if @review.user %></p>
+  </div>
+</div>
+
+<div class="container mb20">
+  <% if current_user.id == @review.user_id %>
+    <%= link_to "編集する", edit_review_path(@review) %> |
+    <%= link_to "削除する", review_path(@review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <h2 class="h4 panel-heading" style="margin: 0;">コメント一覧</h2>
+    <div id="comments_area panel-body" style="padding: 20px;">
       <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
     </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
-    <% if current_user.id == @review.user_id %>
-      <%= link_to '編集', edit_review_path(@review) %> |
-    <% end %>
-    <%= link_to '戻る', reviews_path %>
+    <div style="padding: 20px;">
+      <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
+    </div>
   </div>
+  <%= link_to '戻る', reviews_path %>
 </div>

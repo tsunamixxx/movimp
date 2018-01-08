@@ -1,30 +1,40 @@
-<h1>アカウント登録</h1>
-
-<%= alert %>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <!-- 名前入力用のフィールドを追加 -->
-  <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+<div class="ttl">
+  <div class="container-fluid">
+    <h1>アカウント登録</h1>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+<div class="container-fluid mb30">
+  <div class="tal-c">
+    <p><%= notice %><%= alert %></p>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
-  </div>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）" %>
-  </div>
+    <!-- 名前入力用のフィールドを追加 -->
+    <div class="field mb20">
+      <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "登録する", class: "btn btn-primary btn-block" %>
-  </div>
-<% end %>
+    <div class="field mb20">
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="field mb20">
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
+    </div>
+
+    <div class="field mb20">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）" %>
+    </div>
+
+    <div class="actions mb20">
+      <%= f.submit "登録する", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

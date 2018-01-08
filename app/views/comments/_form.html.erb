@@ -12,9 +12,9 @@
   <% end %>
   <%= f.hidden_field :review_id %>
   <div class="field">
-    <%= f.text_field :content, placeholder: "感想", class: "form-control"  %>
+    <%= f.text_field :content, placeholder: "感想", class: "form-control mb20"  %>
   </div>
-  <div class="actions">
-    <%= f.submit "コメントする" %>
+  <div class="actions tal-c">
+    <%= f.submit "コメントする", class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,22 +1,66 @@
-<h1>レビュー一覧</h1>
+<div class="ttl">
+  <div class="container-fluid mb20">
+    <h1>レビュー一覧</h1>
+  </div>
+</div>
 
-<p><%= notice %></p>
+<div class="container-fluid mb20">
+  <div class="tal-c">
+    <p><%= notice %><%= alert %></p>
+  </div>
+</div>
 
-<% @reviews.each do |review| %>
-  <ul>
-    <li>タイトル:<%= link_to review_path(review) do %><%= review.title %><% end %></li>
-    <li>感想:<%= review.content %></li>
-    <li>画像:<%= image_tag(review.photo) %></li>
-    <li><%= profile_img(review.user) if review.user %></li>
-    <li>投稿者：<%= review.user.name if review.user %></li>
-  </ul>
-  <% if user_signed_in? %>
-    <% if review.user_id == current_user.id %>
-      <%= link_to "編集する", edit_review_path(review.id) %>
-      <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+<div class="container-fluid">
+  <div class="row flex">
+    <% @reviews.first(4).each do |review| %>
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="clearfix mb20">
+              <% unless review.photo.blank?  %>
+                <div class="image flt-l mr20"><%= image_tag(review.photo) %></div>
+              <% else %>
+                <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
+              <% end %>
+
+              <div class="image review-list">
+                <h2 class="h4"><%= review.movie %></h2>
+                <p class="">
+                  <% if review.star == 1 %>
+                    <%= image_tag 'star1.png' %>
+                  <% elsif review.star == 2 %>
+                    <%= image_tag 'star2.png' %>
+                  <% elsif review.star == 3 %>
+                    <%= image_tag 'star3.png' %>
+                  <% elsif review.star == 4 %>
+                    <%= image_tag 'star4.png' %>
+                  <% elsif review.star == 5 %>
+                    <%= image_tag 'star5.png' %>
+                  <% end %>
+                </p>
+                <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title %><% end %></h2>
+                <p class="review-body"><%= review.content %></p>
+                <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+                <div class="mb20">
+                  <% if user_signed_in? %>
+                    <% if review.user_id == current_user.id %>
+                      <%= link_to "編集する", edit_review_path(review.id) %>
+                      <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix">
+              <p class="flt-l thumbnail-ava"><%= profile_img(review.user) if review.user %></p>
+              <p><%= link_to review.user.name, review.user if review.user %></p>
+            </div>
+            <p class="tal-r"><%= link_to review_path(review) do %>コメントをする<% end %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-  <% end %>
-  
-<% end %>
+  </div>
 
-<%= link_to "投稿する", new_review_path %>
+  <%= link_to "投稿する", new_review_path, class: "btn btn-primary btn-block" %>
+</div>

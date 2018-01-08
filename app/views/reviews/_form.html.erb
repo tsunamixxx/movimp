@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid mb20">
+  <div class="tal-c">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
 
+<div class="container">
 <%= form_for(@review, url: choose_new_or_edit) do |f| %>
   <% if @review.errors.any? %>
     <div class="error-explanation">
-      <h2><%= @review.errors.count %>件のエラーがあります</h2>
+      <h3><%= @review.errors.count %>件のエラーがあります</h3>
       <ul>
         <% @review.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,16 +16,28 @@
       </ul>
     </div>
   <% end %>
+  <%= f.label :映画 %>
+  <%= f.text_field :movie, class: 'form-control' %>
+  <br>
+  <%= f.label :評価 %><br>
+  <label><%= f.radio_button :star, "1" %>最低　</label>
+  <label><%= f.radio_button :star, "2" %>悪い　</label>
+  <label><%= f.radio_button :star, "3" %>普通　</label>
+  <label><%= f.radio_button :star, "4" %>良い　</label>
+  <label><%= f.radio_button :star, "5" %>最高</label>
+  <br><br>
   <%= f.label :タイトル %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class: 'form-control' %>
   <br>
   <%= f.label :感想 %>
-  <%= f.text_field :content %>
+  <%= f.text_field :content, class: 'form-control' %>
   <br>
   <%= f.label :画像 %>
   <%= f.file_field :photo %>
   <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "投稿する", class: 'btn btn-primary' %>
 <% end %>
-
-<%= link_to "レビュー一覧画面", reviews_path %>
+<div class="tal-r mt20">
+  <%= link_to "レビュー一覧画面", reviews_path %>
+</div>
+</div>
