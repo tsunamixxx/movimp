@@ -2,15 +2,14 @@
   <% comments.each do |comment| %>
     <% unless comment.id.nil? %>
       <li>
+        <hr>
         <p class="left"><%= comment.user.name %>さんがコメントしました。</p>
         <p class="left"><%= comment.content %></p>
-        <hr>
         <% if current_user.id == comment.user.id %>
           <p class="right">
             <%= link_to '', edit_review_comment_path(review, comment), class: "fa fa-pencil-square-o fa-lg" %>
             <%= link_to '', review_comment_path(review, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
           </p>
-          <hr>
         <% end %>
       </li>
     <% end %>

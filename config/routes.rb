@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   get 'notifications/index'
 
-  get 'relationships/create'
+  #get 'relationships/create'
 
-  get 'relationships/destroy'
+  #get 'relationships/destroy'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

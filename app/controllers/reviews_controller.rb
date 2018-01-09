@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
+  # before_action :authenticate_user!
 
- # ログインしていなくても一覧ページを閲覧することができる
+  # ログインしていなくても一覧ページを閲覧することができる
   before_action :authenticate_user!, except: [:index]
   # before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy, :confirm]
 
