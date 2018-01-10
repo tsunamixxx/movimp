@@ -40,16 +40,16 @@
                 </p>
                 <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title %><% end %></h2>
                 <p class="review-body"><%= review.content %></p>
-                <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
-                <div class="mb20">
-                  <% if user_signed_in? %>
-                    <% if review.user_id == current_user.id %>
-                      <%= link_to "編集する", edit_review_path(review.id) %>
-                      <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
-                    <% end %>
-                  <% end %>
-                </div>
               </div>
+            </div>
+            <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+            <div class="mb20">
+              <% if user_signed_in? %>
+                <% if review.user_id == current_user.id %>
+                  <%= link_to "編集する", edit_review_path(review.id) %>
+                  <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+                <% end %>
+              <% end %>
             </div>
             <div class="clearfix">
               <p class="flt-l thumbnail-ava"><%= profile_img(review.user) if review.user %></p>
