@@ -7,7 +7,7 @@
 <p id="notice" class="tal-c mb30"><%= notice %></p>
 
 <div class="container mb20">
-  <% unless @review.photo.blank?  %>
+  <% unless @review.photo.blank? %>
     <div class="image flt-l mr20"><%= image_tag(@review.photo) %></div>
   <% else %>
     <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
@@ -50,7 +50,7 @@
 <div class="container">
   <div class="panel panel-default">
     <h2 class="h4 panel-heading" style="margin: 0;">コメント一覧</h2>
-    <div id="comments_area panel-body" style="padding: 20px;">
+    <div id="comments_area" class="panel-body" style="padding: 20px;">
       <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
     </div>
     <div style="padding: 20px;">

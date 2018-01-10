@@ -88,7 +88,7 @@ li {
 }
 
 .review-body {
-  height: 55px;
+  height: 60px;
   overflow: hidden;
 }
 
@@ -107,7 +107,11 @@ li {
 }
 
 #comments_area li {
-  border-bottom: 1px dotted #333;
+  border-bottom: 1px dotted #ccc;
+  padding: 20px 0 20px 0;
+}
+#comments_area li:first-child {
+  padding-top: 0;
 }
 
 
