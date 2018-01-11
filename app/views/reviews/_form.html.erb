@@ -1,13 +1,15 @@
-<div class="container-fluid mb20">
-  <div class="tal-c">
-    <p id="notice"><%= notice %></p>
+<% if notice != nil %>
+  <div class="container-fluid mb20">
+    <div class="alert alert-warning" role="alert">
+      <p><%= notice %></p>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="container">
 <%= form_for(@review, url: choose_new_or_edit) do |f| %>
   <% if @review.errors.any? %>
-    <div class="error-explanation">
+    <div class="alert alert-warning" role="alert">
       <h3><%= @review.errors.count %>件のエラーがあります</h3>
       <ul>
         <% @review.errors.full_messages.each do |msg| %>
@@ -16,17 +18,17 @@
       </ul>
     </div>
   <% end %>
-  <%= f.label :映画 %>
+  <%= f.label :映画＊ %>
   <%= f.text_field :movie, class: 'form-control' %>
   <br>
-  <%= f.label :評価 %><br>
+  <%= f.label :評価＊ %><br>
   <label><%= f.radio_button :star, "1" %>最低　</label>
   <label><%= f.radio_button :star, "2" %>悪い　</label>
   <label><%= f.radio_button :star, "3" %>普通　</label>
   <label><%= f.radio_button :star, "4" %>良い　</label>
   <label><%= f.radio_button :star, "5" %>最高</label>
   <br><br>
-  <%= f.label :タイトル %>
+  <%= f.label :タイトル＊ %>
   <%= f.text_field :title, class: 'form-control' %>
   <br>
   <%= f.label :感想 %>

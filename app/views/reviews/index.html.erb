@@ -4,11 +4,14 @@
   </div>
 </div>
 
-<div class="container-fluid mb20">
-  <div class="tal-c">
-    <p><%= notice %><%= alert %></p>
+<!-- 一覧ページはログイン無しで見れるようにしたので、下記は必要ないかも -->
+<% if notice != nil || alert != nil %>
+  <div class="container-fluid mb20">
+    <div class="alert alert-warning" role="alert">
+      <p><%= notice %><%= alert %></p>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="container-fluid">
   <div class="row flex">
@@ -46,7 +49,7 @@
             <div class="mb20">
               <% if user_signed_in? %>
                 <% if review.user_id == current_user.id %>
-                  <%= link_to "編集する", edit_review_path(review.id) %>
+                  <%= link_to "編集する", edit_review_path(review.id) %>｜
                   <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
                 <% end %>
               <% end %>

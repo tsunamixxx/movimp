@@ -6,7 +6,9 @@ ja:
       user: "ユーザー"
     attributes:
       review:
+        movie: "映画名"
         title: "タイトル"
+        star: "評価"
         content: "感想"
       contact:
         name: "名前"

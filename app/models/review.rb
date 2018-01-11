@@ -1,5 +1,7 @@
 class Review < ActiveRecord::Base
   validates :title, presence: true
+  validates :movie, presence: true
+  validates :star, presence: true
 
   belongs_to :user
 
