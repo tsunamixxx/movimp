@@ -13,6 +13,7 @@
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :photo %>
+  <%= hidden_field_tag :"cache[photo]", @review.photo.cache_name %>
 
   <!-- @review.titleと@review.contentとすることで、表示用の値を画面に出力しています。 -->
   <p>映画:<%= @review.movie %></p>
@@ -29,6 +30,7 @@
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :photo %>
+  <%= hidden_field_tag :"cache[photo]", @review.photo.cache_name %>
   <%= f.submit "もどる", name: 'back' %>
 <% end %>
 </div>

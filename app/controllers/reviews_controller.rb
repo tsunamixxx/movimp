@@ -32,6 +32,10 @@ class ReviewsController < ApplicationController
     # Review.create(reviews_params)
     @review = Review.new(reviews_params)
     @review.user_id = current_user.id
+
+    @review.photo.retrieve_from_cache! params[:cache][:photo]
+    @review.save!
+
     if @review.save
       redirect_to reviews_path, notice:"投稿しました"
       NoticeMailer.sendmail_review(@review).deliver_now
