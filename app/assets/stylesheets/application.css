@@ -93,7 +93,7 @@ li {
 }
 
 .ttl {
-  background-image: url(ttl.jpg);
+  background-image: url("ttl.jpg");
   background-size: cover;
 }
 .ttl h1 {

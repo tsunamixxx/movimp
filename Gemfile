@@ -48,7 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'letter_opener_web'
+  gem 'letter_opener'
 
   #開発環境での環境変数化
   gem 'dotenv-rails'

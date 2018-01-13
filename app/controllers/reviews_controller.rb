@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.save
       redirect_to reviews_path, notice:"投稿しました"
-      NoticeMailer.sendmail_review(@review).deliver
+      NoticeMailer.sendmail_review(@review).deliver_now
     else
       render 'new'
     end
