@@ -5,10 +5,11 @@
         <p class="left"><%= comment.user.name %>さんがコメントしました。</p>
         <p class="left"><%= comment.content %></p>
         <% if current_user.id == comment.user.id %>
-          <p class="right">
+          <div class="right">
+            <!-- <p class="right"><%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p> -->
             <%= link_to '', edit_review_comment_path(review, comment), class: "fa fa-pencil-square-o fa-lg" %>
             <%= link_to '', review_comment_path(review, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
-          </p>
+          </div>
         <% end %>
       </li>
     <% end %>

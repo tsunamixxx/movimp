@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # 'letter_opener_web'へメールが来なかった場合下記の対応をする
+  # gem 'letter_opener_web'から下記へ変更
   gem 'letter_opener'
 
   #開発環境での環境変数化

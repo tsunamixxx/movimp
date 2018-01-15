@@ -33,7 +33,8 @@ Rails.application.routes.draw do
 
   # letter_opener_webの設定
   if Rails.env.development?
-    #mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    # 'letter_opener_web'へメールが来なかった場合下記の対応のように設定しない
+    # mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

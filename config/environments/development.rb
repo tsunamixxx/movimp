@@ -41,5 +41,6 @@ Rails.application.configure do
 
   # letter_opener_web
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # 'letter_opener_web'へメールが来なかった場合下記のようにletter_opener_webからletter_openerへ変更
   config.action_mailer.delivery_method = :letter_opener
 end

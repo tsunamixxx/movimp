@@ -49,7 +49,7 @@
                 <p class="review-body"><%= review.content %></p>
               </div>
             </div>
-            <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+            <!-- <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p> -->
             <div class="mb20">
               <% if user_signed_in? %>
                 <% if review.user_id == current_user.id %>

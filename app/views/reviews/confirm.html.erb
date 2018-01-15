@@ -13,6 +13,9 @@
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :photo %>
+  <!--新規投稿すると画像がアップロードできない。
+  # 編集で画像をアップロードすると正常にアップロードできる。
+  # という現象の際は下記の1行を追記すると解決できる。https://teratail.com/questions/71110 -->
   <%= hidden_field_tag :"cache[photo]", @review.photo.cache_name %>
 
   <!-- @review.titleと@review.contentとすることで、表示用の値を画面に出力しています。 -->
@@ -30,6 +33,9 @@
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.hidden_field :photo %>
+  <!--新規投稿すると画像がアップロードできない。
+  # 編集で画像をアップロードすると正常にアップロードできる。
+  # という現象の際は下記の1行を追記すると解決できる。https://teratail.com/questions/71110 -->
   <%= hidden_field_tag :"cache[photo]", @review.photo.cache_name %>
   <%= f.submit "もどる", name: 'back' %>
 <% end %>

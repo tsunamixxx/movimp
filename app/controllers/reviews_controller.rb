@@ -33,7 +33,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(reviews_params)
     @review.user_id = current_user.id
 
-    @review.photo.retrieve_from_cache! params[:cache][:photo]
+    # 新規投稿すると画像がアップロードできない。
+    # 編集で画像をアップロードすると正常にアップロードできる。
+    # という現象の際は下記の2行を追記すると解決できる。
+    # https://teratail.com/questions/71110
+    # https://ja.stackoverflow.com/questions/33844/rails%E3%81%A7carriewave%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E7%94%BB%E5%83%8F%E3%82%92%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%99%E3%82%8B
+    @review.photo.retrieve_from_cache! params[:cache][:photo] if params[:cache][:photo].present?
     @review.save!
 
     if @review.save

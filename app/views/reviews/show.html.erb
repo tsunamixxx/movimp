@@ -35,7 +35,7 @@
     </p>
     <h2><%= @review.title %></h2>
     <p class="left"><%= @review.content %></p>
-    <p class="right">作成時間:<%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+    <!-- <p class="right">作成時間:<%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p> -->
   </div>
 </div>
 
@@ -56,8 +56,10 @@
 <div class="container">
   <div class="panel panel-default">
     <h2 class="h4 panel-heading" style="margin: 0;">コメント一覧</h2>
-    <div id="comments_area" class="panel-body" style="padding: 20px;">
-      <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
+    <div class="panel-body" style="padding: 20px;">
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
+      </div>
     </div>
     <div style="padding: 20px;">
       <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
