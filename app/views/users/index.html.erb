@@ -7,7 +7,7 @@
 <div class="container">
   <!-- <div class="row"> -->
     <% @users.each do |user| %>
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-3 mb20">
       <p class="tal-c"><%= link_to user do %><%= profile_img(user) %><% end %></p>
       <p class="tal-c"><%= link_to user.name, user %></p>
       <%= render 'follow_form', user: user %>
