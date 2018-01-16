@@ -118,10 +118,6 @@ li {
   padding-top: 0;
 }
 
-.user-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 
 @media screen and (max-width:767px) {
@@ -132,6 +128,7 @@ li {
 @media screen and (min-width:768px){
   /*　画面サイズが768px以上の場合読み込む　*/
 
+  .user-flex,
   .flex{
   display: flex;
   flex-wrap: wrap;
