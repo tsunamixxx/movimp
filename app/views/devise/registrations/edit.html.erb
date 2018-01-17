@@ -40,7 +40,7 @@
       </div>
     <% end %>
 
-    <div class="field mb20">
+    <div class="field mb20 thumbnail-ava-userlist">
       <%= profile_img(@user) if profile_img(@user) %>
       <%= f.file_field :avatar, class: "mt20" %>
       <%= f.hidden_field :avatar_cache %>
