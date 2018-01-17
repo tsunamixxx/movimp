@@ -8,7 +8,7 @@
   <div class="row user-flex">
     <% @users.each do |user| %>
     <div class="col-md-3 col-sm-3 mb30">
-      <p class="tal-c"><%= link_to user do %><%= profile_img(user) %><% end %></p>
+      <p class="tal-c thumbnail-ava-userlist"><%= link_to user do %><%= profile_img(user) %><% end %></p>
       <p class="tal-c"><%= link_to user.name, user %></p>
       <%= render 'follow_form', user: user %>
     </div>

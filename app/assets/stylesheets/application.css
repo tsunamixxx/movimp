@@ -47,6 +47,10 @@ li {
 .thumbnail-ava {
   margin-right: 10px;
 }
+.thumbnail-ava img,
+.thumbnail-ava-userlist img {
+  width: 63px;
+}
 
 .review-list h2 {
   font-size: 20px;
