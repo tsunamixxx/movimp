@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
   <ul class="mb20">
-    <li class="tal-c mb20"><%= profile_img(@user) %></li>
+    <li class="tal-c mb20 thumbnail-ava-userlist"><%= profile_img(@user) %></li>
     <li class="tal-c">ユーザー名：<%= @user.name %></li>
   </ul>
 
@@ -15,7 +15,7 @@
     <div class="panel-body">
       <div class="row">
         <% @user.followed_users.each do |user| %>
-          <div class="col-md-2 col-sm-2">
+          <div class="col-md-2 col-sm-2 tal-c">
             <p><%= profile_img(user) %></p>
             <p><%= link_to user.name, user %></p>
           </div>
@@ -29,7 +29,7 @@
     <div class="panel-body">
       <div class="row">
         <% @user.followers.each do |user| %>
-          <div class="col-md-2 col-sm-2">
+          <div class="col-md-2 col-sm-2 tal-c">
             <p><%= profile_img(user) %></p>
             <p><%= link_to user.name, user %></p>
           </div>
