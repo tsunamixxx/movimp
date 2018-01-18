@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <%= f.hidden_field :review_id %>
-  <div class="field">
-    <%= f.text_field :content, placeholder: "感想", class: "form-control mb20"  %>
+  <div class="field mb20">
+    <%= f.text_area :content, :size => "20x10", class: "form-control", placeholder: "コメント" %>
   </div>
   <div class="actions tal-c">
     <%= f.submit "コメントする", class: 'btn btn-primary' %>

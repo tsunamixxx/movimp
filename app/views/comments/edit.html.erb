@@ -1,5 +1,10 @@
-<h1 class="title">コメントの編集</h1>
+<div class="ttl mb40">
+  <div class="container-fluid">
+    <h1>コメントの編集</h1>
+  </div>
+</div>
 
+<div class="container">
   <% if @comment.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
@@ -10,3 +15,4 @@
     </div>
   <% end %>
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
+</div>

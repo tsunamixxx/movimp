@@ -32,12 +32,12 @@
   <%= f.text_field :title, class: 'form-control' %>
   <br>
   <%= f.label :感想 %>
-  <%= f.text_field :content, class: 'form-control' %>
+  <%= f.text_area :content, :size => "20x10", class: 'form-control' %>
   <br>
   <%= f.label :画像 %>
   <%= f.file_field :photo %>
   <br>
-  <%= f.submit "投稿する", class: 'btn btn-primary' %>
+  <p class="tal-c"><%= f.submit "投稿する", class: 'btn btn-primary' %></p>
 <% end %>
 <div class="tal-r mt20">
   <%= link_to "レビュー一覧画面", reviews_path %>

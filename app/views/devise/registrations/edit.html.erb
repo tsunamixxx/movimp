@@ -46,14 +46,14 @@
       <%= f.hidden_field :avatar_cache %>
     </div>
 
-    <div class="actions mb20">
-      <%= f.submit "更新する", class: "btn btn-primary btn-block" %>
-    </div>
+    <p class="actions tal-c mb40">
+      <%= f.submit "更新する", class: "btn btn-primary" %>
+    </p>
   <% end %>
 
   <h2 class="h4">退会する</h2>
 
-  <p>アカウント情報を削除しますか？ <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にいいですか？" }, method: :delete %></p>
+  <p>アカウント情報を削除しますか？ <%= button_to "アカウントを削除する", registration_path(resource_name), class: "tal-c", data: { confirm: "本当にいいですか？" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
 </div>

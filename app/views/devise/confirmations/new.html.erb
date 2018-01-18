@@ -1,16 +1,27 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+<div class="ttl">
+  <div class="container-fluid">
+    <h1>確認メールの再送信</h1>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+<div class="container-fluid mb30">
+  <div class="tal-c">
+    <p><%= notice %><%= alert %></p>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url:   confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field mb20">
+      <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス", autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <div class="actions tal-c mb20">
+      <%= f.submit "確認メールを再送信する", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
