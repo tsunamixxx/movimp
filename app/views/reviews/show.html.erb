@@ -35,9 +35,10 @@
     </p>
     <h2><%= @review.title %></h2>
     <p class="left"><%= @review.content %></p>
-    <!-- <p class="right">作成時間:<%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p> -->
   </div>
 </div>
+
+<p class="container mb20">作成時間:<%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
 
 <div class="container mb20">
   <div class="clearfix">
