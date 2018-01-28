@@ -19,7 +19,7 @@
 
 <div class="container-fluid">
   <div class="row flex">
-    <% @reviews.first(4).each do |review| %>
+    <% @reviews.first(6).each do |review| %>
       <div class="col-sm-6">
         <div class="panel panel-default">
           <div class="panel-body">
@@ -31,7 +31,7 @@
               <% end %>
 
               <div class="image review-list">
-                <h2 class="h4"><%= review.movie %></h2>
+                <h2 class="h4"><%= review.movie.truncate(15) %></h2>
                 <p class="">
                   <% if review.star == 1 %>
                     <%= image_tag 'star1.png' %>
@@ -45,11 +45,11 @@
                     <%= image_tag 'star5.png' %>
                   <% end %>
                 </p>
-                <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title %><% end %></h2>
-                <p class="review-body"><%= review.content %></p>
+                <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
+                <p class=""><%= review.content.truncate(50) %></p>
               </div>
             </div>
-            <!-- <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p> -->
+            <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
             <div class="mb20">
               <% if user_signed_in? %>
                 <% if review.user_id == current_user.id %>
@@ -59,7 +59,7 @@
               <% end %>
             </div>
             <div class="clearfix">
-              <p class="flt-l thumbnail-ava"><%= profile_img(review.user) if review.user %></p>
+              <p class="flt-l thumbnail-ava"><%=  link_to  profile_img(review.user), review.user if review.user %></p>
               <p><%= link_to review.user.name, review.user if review.user %></p>
             </div>
             <p class="tal-r"><%= link_to review_path(review) do %>コメントをする<% end %></p>

@@ -1,0 +1,50 @@
+<div class="row flex">
+  <% @reviews.each do |review| %>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="clearfix mb20">
+            <% unless review.photo.blank?  %>
+              <div class="image flt-l mr20"><%= image_tag(review.photo) %></div>
+            <% else %>
+              <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
+            <% end %>
+
+            <div class="image review-list">
+              <h2 class="h4"><%= review.movie.truncate(15) %></h2>
+              <p class="">
+                <% if review.star == 1 %>
+                  <%= image_tag 'star1.png' %>
+                <% elsif review.star == 2 %>
+                  <%= image_tag 'star2.png' %>
+                <% elsif review.star == 3 %>
+                  <%= image_tag 'star3.png' %>
+                <% elsif review.star == 4 %>
+                  <%= image_tag 'star4.png' %>
+                <% elsif review.star == 5 %>
+                  <%= image_tag 'star5.png' %>
+                <% end %>
+              </p>
+              <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
+              <p class=""><%= review.content.truncate(50) %></p>
+            </div>
+          </div>
+          <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+          <div class="mb20">
+            <% if user_signed_in? %>
+              <% if review.user_id == current_user.id %>
+                <%= link_to "編集する", edit_review_path(review.id) %>
+                <%= link_to "削除する", review_path(review.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="clearfix">
+            <p class="flt-l thumbnail-ava"><%=  link_to  profile_img(review.user), review.user if review.user %></p>
+            <p><%= link_to review.user.name, review.user if review.user %></p>
+          </div>
+          <p class="tal-r"><%= link_to review_path(review) do %>コメントをする<% end %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

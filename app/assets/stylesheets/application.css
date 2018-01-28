@@ -49,7 +49,9 @@ li {
 }
 .thumbnail-ava img,
 .thumbnail-ava-userlist img {
-  width: 63px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .review-list h2 {
@@ -88,16 +90,6 @@ li {
 
 .review-list {
   width: 100%;
-}
-
-.review-ttl {
-  height: 55px;
-  overflow: hidden;
-}
-
-.review-body {
-  height: 60px;
-  overflow: hidden;
 }
 
 .ttl {
