@@ -13,11 +13,11 @@
 <% end %>
 
 <div class="container mb20">
-  <div class="review-list">
+  <div class="review-list review">
     <% unless @review.photo.blank? %>
-      <%= image_tag(@review.photo, class: "image flt-l mr20") %>
+      <%= image_tag(@review.photo, class: "image flt-r ml20") %>
     <% else %>
-      <%= image_tag 'no-image.jpg', class: "image flt-l mr20" %>
+      <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
     <% end %>
     <h2 class="h4"><%= @review.movie %></h2>
     <p class="">

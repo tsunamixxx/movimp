@@ -140,7 +140,9 @@ li {
   flex-wrap: wrap;
   }
 
-
+  .review .image {
+    width: 250px;
+  }
 
 
 }
