@@ -4,13 +4,12 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="clearfix mb20">
-            <% unless review.photo.blank?  %>
-              <div class="image flt-l mr20"><%= image_tag(review.photo) %></div>
-            <% else %>
-              <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
-            <% end %>
-
-            <div class="image review-list">
+            <div class="review-list">
+              <% unless review.photo.blank?  %>
+                <%= image_tag(review.photo, class: "image flt-r ml20") %>
+              <% else %>
+                <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
+              <% end %>
               <h2 class="h4"><%= review.movie.truncate(15) %></h2>
               <p class="">
                 <% if review.star == 1 %>

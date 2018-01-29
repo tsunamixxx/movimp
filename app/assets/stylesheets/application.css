@@ -80,6 +80,10 @@ li {
   margin-right: 20px;
 }
 
+.ml20 {
+  margin-left: 20px;
+}
+
 .tal-r {
   text-align: right;
 }
@@ -89,7 +93,11 @@ li {
 }
 
 .review-list {
-  width: 100%;
+
+}
+
+.margin-right {
+  margin-left: auto;
 }
 
 .ttl {
@@ -114,7 +122,9 @@ li {
   padding-top: 0;
 }
 
-
+.alert h3 {
+  margin-top: 0;
+}
 
 @media screen and (max-width:767px) {
   /*　画面サイズが767px以下の場合読み込む　*/
