@@ -60,6 +60,12 @@ li {
   margin-top: 0;
 }
 
+.movie-ttl {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
 .mb20 {
   margin-bottom: 20px;
 }
