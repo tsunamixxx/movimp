@@ -146,6 +146,11 @@ li {
   flex-wrap: wrap;
   }
 
+  .user-flex .col-sm-6,
+  .flex .col-sm-6{
+  width: 49.9%;
+  }
+
   .review .image {
     width: 250px;
   }
