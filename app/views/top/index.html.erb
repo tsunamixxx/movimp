@@ -30,24 +30,22 @@
                 <% else %>
                   <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
                 <% end %>
-                <div>
-                  <p class=""><%= review.movie.truncate(15) %></p>
-                  <p class="">
-                    <% if review.star == 1 %>
-                      <%= image_tag 'star1.png' %>
-                    <% elsif review.star == 2 %>
-                      <%= image_tag 'star2.png' %>
-                    <% elsif review.star == 3 %>
-                      <%= image_tag 'star3.png' %>
-                    <% elsif review.star == 4 %>
-                      <%= image_tag 'star4.png' %>
-                    <% elsif review.star == 5 %>
-                      <%= image_tag 'star5.png' %>
-                    <% end %>
-                  </p>
-                  <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
-                  <p class=""><%= review.content.truncate(50) %></p>
-                </div>
+                <h2 class="h4"><%= review.movie.truncate(15) %></h2>
+                <p>
+                  <% if review.star == 1 %>
+                    <%= image_tag 'star1.png' %>
+                  <% elsif review.star == 2 %>
+                    <%= image_tag 'star2.png' %>
+                  <% elsif review.star == 3 %>
+                    <%= image_tag 'star3.png' %>
+                  <% elsif review.star == 4 %>
+                    <%= image_tag 'star4.png' %>
+                  <% elsif review.star == 5 %>
+                    <%= image_tag 'star5.png' %>
+                  <% end %>
+                </p>
+                <h2><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
+                <p><%= review.content.truncate(50) %></p>
               </div>
             </div>
             <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
