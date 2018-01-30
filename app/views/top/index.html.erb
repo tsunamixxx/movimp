@@ -45,7 +45,7 @@
                       <%= image_tag 'star5.png' %>
                     <% end %>
                   </p>
-                  <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
+                  <h2 class="review-ttl" style="text-align:left"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
                   <p class=""><%= review.content.truncate(50) %></p>
                 </div>
               </div>
