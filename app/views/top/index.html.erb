@@ -31,7 +31,7 @@
                   <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
                 <% end %>
                 <div>
-                  <h2 class="h4"><%= review.movie.truncate(15) %></h2>
+                  <p class=""><%= review.movie.truncate(15) %></p>
                   <p class="">
                     <% if review.star == 1 %>
                       <%= image_tag 'star1.png' %>
