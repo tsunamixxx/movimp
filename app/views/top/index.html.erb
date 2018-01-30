@@ -30,7 +30,7 @@
                 <% else %>
                   <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
                 <% end %>
-                <h2 class="h5"><%= review.movie.truncate(20) %></h2>
+                <h2 class="movie-ttl"><%= review.movie.truncate(20) %></h2>
                 <p>
                   <% if review.star == 1 %>
                     <%= image_tag 'star1.png' %>
