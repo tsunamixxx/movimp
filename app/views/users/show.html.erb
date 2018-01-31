@@ -42,8 +42,9 @@
 <div class="container-fluid">
   <h2 class="h4 mb20"><%= @user.name %>さんの投稿</h2>
   <div class="row flex">
-    <!-- 下記の記述だと最新記事が上に来ない -->
-    <% @user.reviews.each do |review|  %>
+    <!-- 下記の記述で古い記事を逆に表示して最新記事を上にもってくる -->
+    <% @user.reviews.reverse_each do |review|  %>
+    <!-- 下記の記述だと全部の投稿が表示される（最新記事は上に来る） -->
     <!-- @reviews.each do |review| -->
       <div class="col-sm-6">
         <div class="panel panel-default">
