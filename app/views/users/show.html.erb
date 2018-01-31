@@ -49,15 +49,14 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="clearfix mb20">
-              <% unless review.photo.blank?  %>
-                <div class="image flt-l mr20"><%= image_tag(review.photo) %></div>
-              <% else %>
-                <div class="image flt-l mr20"><%= image_tag 'no-image.jpg' %></div>
-              <% end %>
-
-              <div class="image review-list">
-                <h2 class="h4"><%= review.movie.truncate(15) %></h2>
-                <p class="">
+              <div class="review-list">
+                <% unless review.photo.blank?  %>
+                  <%= image_tag(review.photo, class: "image flt-r ml20") %>
+                <% else %>
+                  <%= image_tag 'no-image.jpg', class: "image flt-r ml20" %>
+                <% end %>
+                <h2 class="movie-ttl"><%= review.movie.truncate(15) %></h2>
+                <p>
                   <% if review.star == 1 %>
                     <%= image_tag 'star1.png' %>
                   <% elsif review.star == 2 %>
@@ -70,11 +69,11 @@
                     <%= image_tag 'star5.png' %>
                   <% end %>
                 </p>
-                <h2 class="review-ttl"><%= link_to review_path(review) do %><%= review.title.truncate(20) %><% end %></h2>
+                <h2><%= link_to review_path(review) do %><%= review.title.truncate(15) %><% end %></h2>
                 <p class=""><%= review.content.truncate(50) %></p>
               </div>
             </div>
-            <p><%= review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+            <p><%= review[:created_at].strftime("%y/%m/%d %p %l:%M") %></p>
             <div class="mb20">
               <% if user_signed_in? %>
                 <% if review.user_id == current_user.id %>

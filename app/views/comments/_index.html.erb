@@ -10,7 +10,7 @@
             <%= link_to '', review_comment_path(review, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
           </div>
         <% end %>
-        <p class="right"><%= @review.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+        <p class="right"><%= comment.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
       </li>
     <% end %>
   <% end %>
