@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
 
   def index
     # order(created_at: :desc)で新しい投稿順にする
-    @reviews = Review.all.order(created_at: :desc)
+    # @reviews = Review.all.order(created_at: :desc)を下記に書き換えてSQLの数を激減させる（N+1問題対応）
+    @reviews = Review.includes(:user).all.order(created_at: :desc)
   end
 
   # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
